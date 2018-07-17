@@ -29,6 +29,7 @@ class UserVisitsController < ApplicationController
   # POST /user_visits.json
   def create
     @user_visit = UserVisit.new(user_visit_params)
+    @user_visit.user = current_user
 
     respond_to do |format|
       if @user_visit.save
