@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_visit.user %>
+</p>
+
+<p>
+  <strong>Lake:</strong>
+  <%= @user_visit.lake %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user_visit.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @user_visit.public %>
+</p>
+
+<%= link_to 'Edit', edit_user_visit_path(@user_visit) %> |
+<%= link_to 'Back', user_visits_path %>
