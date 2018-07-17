@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Lake -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Lake %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @lake.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @lake.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @lake.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:active) %></dt>
+      <dd><pre class="prettyprint"><%= @lake.active %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lat) %></dt>
+      <dd><pre class="prettyprint"><%= @lake.lat %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:lng) %></dt>
+      <dd><pre class="prettyprint"><%= @lake.lng %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @lake.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              lakes_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_lake_path(@lake), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              lake_path(@lake),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Active:</strong>
-  <%= @lake.active %>
-</p>
-
-<p>
-  <strong>Lat:</strong>
-  <%= @lake.lat %>
-</p>
-
-<p>
-  <strong>Lng:</strong>
-  <%= @lake.lng %>
-</p>
-
-<%= link_to 'Edit', edit_lake_path(@lake) %> |
-<%= link_to 'Back', lakes_path %>
