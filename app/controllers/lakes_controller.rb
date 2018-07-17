@@ -1,5 +1,5 @@
 class LakesController < ApplicationController
-  before_action :set_lake, only: [:show, :edit, :update, :destroy]
+  before_action :set_lake, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /lakes
   # GET /lakes.json
