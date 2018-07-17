@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lake_views
+
   resources :user_visits
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}, skip: [:sessions, :registrations]

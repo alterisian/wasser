@@ -1,0 +1,33 @@
+<h1>Listing lake_views</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tl lat</th>
+      <th>Tl lng</th>
+      <th>Br lat</th>
+      <th>Br lng</th>
+      <th>Lake</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lake_views.each do |lake_view| %>
+      <tr>
+        <td><%= lake_view.tl_lat %></td>
+        <td><%= lake_view.tl_lng %></td>
+        <td><%= lake_view.br_lat %></td>
+        <td><%= lake_view.br_lng %></td>
+        <td><%= lake_view.lake %></td>
+        <td><%= link_to 'Show', lake_view %></td>
+        <td><%= link_to 'Edit', edit_lake_view_path(lake_view) %></td>
+        <td><%= link_to 'Destroy', lake_view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lake view', new_lake_view_path %>

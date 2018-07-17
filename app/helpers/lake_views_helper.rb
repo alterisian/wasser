@@ -1,0 +1,2 @@
+module LakeViewsHelper
+end

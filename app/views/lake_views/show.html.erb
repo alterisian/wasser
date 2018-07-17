@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tl lat:</strong>
+  <%= @lake_view.tl_lat %>
+</p>
+
+<p>
+  <strong>Tl lng:</strong>
+  <%= @lake_view.tl_lng %>
+</p>
+
+<p>
+  <strong>Br lat:</strong>
+  <%= @lake_view.br_lat %>
+</p>
+
+<p>
+  <strong>Br lng:</strong>
+  <%= @lake_view.br_lng %>
+</p>
+
+<p>
+  <strong>Lake:</strong>
+  <%= @lake_view.lake %>
+</p>
+
+<%= link_to 'Edit', edit_lake_view_path(@lake_view) %> |
+<%= link_to 'Back', lake_views_path %>
