@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :lakes
+  resources :lakes do
+  #->Prelang (voting/acts_as_votable)
+  member do
+    get "vote"
+  end
+end
+
 
   resources :lake_views
 
