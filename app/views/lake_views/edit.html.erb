@@ -1,6 +1,5 @@
-<h1>Editing lake_view</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @lake_view %> |
-<%= link_to 'Back', lake_views_path %>
+<%- model_class = LakeView -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => LakeView %></h1>
+</div>
+<%= render :partial => 'form' %>

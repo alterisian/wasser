@@ -1,33 +1,42 @@
-<h1>Listing lake_views</h1>
-
-<table>
+<%- model_class = LakeView -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => LakeView %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Tl lat</th>
-      <th>Tl lng</th>
-      <th>Br lat</th>
-      <th>Br lng</th>
-      <th>Lake</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:tl_lat) %></th>
+      <th><%= model_class.human_attribute_name(:tl_lng) %></th>
+      <th><%= model_class.human_attribute_name(:br_lat) %></th>
+      <th><%= model_class.human_attribute_name(:br_lng) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @lake_views.each do |lake_view| %>
       <tr>
+        <td><%= lake_view.id %></td>
         <td><%= lake_view.tl_lat %></td>
         <td><%= lake_view.tl_lng %></td>
         <td><%= lake_view.br_lat %></td>
         <td><%= lake_view.br_lng %></td>
-        <td><%= lake_view.lake %></td>
-        <td><%= link_to 'Show', lake_view %></td>
-        <td><%= link_to 'Edit', edit_lake_view_path(lake_view) %></td>
-        <td><%= link_to 'Destroy', lake_view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l lake_view.created_at, format: :long %></td>
+        <td>
+          <%= link_to lake_view_path(lake_view), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to lake_view_path(lake_view), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Lake view', new_lake_view_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_lake_view_path,
+            :class => 'btn btn-primary' %>

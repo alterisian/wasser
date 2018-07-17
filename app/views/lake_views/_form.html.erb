@@ -1,17 +1,34 @@
-
-<%= simple_form_for(@lake_view) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :tl_lat %>
-    <%= f.input :tl_lng %>
-    <%= f.input :br_lat %>
-    <%= f.input :br_lng %>
-    <%= f.association :lake %>
+<%= form_for @lake_view, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :tl_lat, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :tl_lat, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tl_lng, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :tl_lng, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :br_lat, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :br_lat, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :br_lng, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :br_lng, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  lake_views_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
