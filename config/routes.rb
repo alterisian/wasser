@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lakes
+
   resources :lake_views
 
   resources :user_visits

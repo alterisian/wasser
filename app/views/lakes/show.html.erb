@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lake.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lake.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @lake.active %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @lake.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @lake.lng %>
+</p>
+
+<%= link_to 'Edit', edit_lake_path(@lake) %> |
+<%= link_to 'Back', lakes_path %>

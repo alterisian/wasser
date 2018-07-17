@@ -1,0 +1,33 @@
+<h1>Listing lakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Active</th>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lakes.each do |lake| %>
+      <tr>
+        <td><%= lake.name %></td>
+        <td><%= lake.description %></td>
+        <td><%= lake.active %></td>
+        <td><%= lake.lat %></td>
+        <td><%= lake.lng %></td>
+        <td><%= link_to 'Show', lake %></td>
+        <td><%= link_to 'Edit', edit_lake_path(lake) %></td>
+        <td><%= link_to 'Destroy', lake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lake', new_lake_path %>
